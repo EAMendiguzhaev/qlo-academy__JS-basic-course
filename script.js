@@ -1,10 +1,17 @@
-let money;
-let income;
-let addExpenses;
-let deposit;
-let mission;
-let period;
+let money = 42000;
+let income = 42;
+let addExpenses = "500, 1500, 4500";
+let deposit = Boolean(200000);
+let mission = "1000000";
+let period = 5;
 
-alert("Привет JS 19.0");
+console.log("money: ", money);
+console.log("income: ", income);
+console.log("deposit: ", deposit);
+console.log("addExpenses: ", addExpenses.length);
+console.log("Период равен " + period + " месяцев");
+console.log("Цель заработать " + mission + " долларов");
+console.log(addExpenses.toLowerCase().split(", "));
 
-console.log("Ну привет, юный падаван =)");
+let budgetDay = money / 30;
+console.log("budgetDay: ", budgetDay);
