@@ -2,7 +2,7 @@ let money = 42000;
 let income = 42;
 let addExpenses = "500, 1500, 4500";
 let deposit = Boolean(200000);
-let mission = "1000000";
+let mission = 1000000;
 let period = 5;
 
 console.log("money: ", money);
