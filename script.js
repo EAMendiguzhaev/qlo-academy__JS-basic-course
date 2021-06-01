@@ -30,24 +30,16 @@ const getExpensesMonth = function (costs, costs2) {
   return console.log("Итоговая сумма обязательных расходов:", costs + costs2);
 };
 
-getExpensesMonth(sum, sum2);
-
 const getAccumulatedMonth = function () {
   let budgetMonth = money - (sum + sum2);
   console.log("Накопления за месяц", budgetMonth);
   return budgetMonth;
 };
 
-const accumulatedMonth = getAccumulatedMonth();
-
 const getTargetMonth = function (accMonth) {
   let period = mission / accMonth;
   return console.log(`Цель будет достигнута за ${Math.ceil(period)} месяцев`);
 };
-
-getTargetMonth(accumulatedMonth);
-
-budgetDay = accumulatedMonth / 30;
 
 const getStatusIncome = function () {
   if (budgetDay >= 1200) {
@@ -61,6 +53,13 @@ const getStatusIncome = function () {
   }
 };
 
+// Функционал / логика
+
+const accumulatedMonth = getAccumulatedMonth();
+budgetDay = accumulatedMonth / 30;
+
+getExpensesMonth(sum, sum2);
+getTargetMonth(accumulatedMonth);
 getStatusIncome();
 
 // Мусор
