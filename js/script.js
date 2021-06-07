@@ -5,13 +5,13 @@ const buttonExpensesAdd = document.getElementsByTagName('button')[1];
 const depositCheck = document.querySelector('#deposit-check');
 const additionalIncomeItem = document.querySelectorAll('.additional_income-item');
 
-const budgetMonthValue = document.getElementsByClassName('.budget_month-value')[0];
-const budgetDayValue = document.getElementsByClassName('.budget_day-value')[0];
-const expensesMonthValue = document.getElementsByClassName('.expenses_month-value')[0];
-const additionalIncomeValue = document.getElementsByClassName('.additional_income-value')[0];
-const additionalExpensesValue = document.getElementsByClassName('.additional_expenses-value')[0];
-const incomePeriodValue = document.getElementsByClassName('.income_period-value')[0];
-const targetMonthValue = document.getElementsByClassName('.target_month-value')[0];
+const budgetMonthValue = document.getElementsByClassName('budget_month-value')[0];
+const budgetDayValue = document.getElementsByClassName('budget_day-value')[0];
+const expensesMonthValue = document.getElementsByClassName('expenses_month-value')[0];
+const additionalIncomeValue = document.getElementsByClassName('additional_income-value')[0];
+const additionalExpensesValue = document.getElementsByClassName('additional_expenses-value')[0];
+const incomePeriodValue = document.getElementsByClassName('income_period-value')[0];
+const targetMonthValue = document.getElementsByClassName('target_month-value')[0];
 
 const salaryAmount = document.querySelector('.salary-amount');
 const expensesTitle = document.querySelector('.expenses-title');
