@@ -17,6 +17,7 @@ deleteAdvertising.remove();
 
 // Восстановил порядок во 2 книге
 const itemsBooks3 = books[0].querySelectorAll('li');
+itemsBooks3[9].append(itemsBooks3[2]);
 itemsBooks3[3].append(itemsBooks3[6]);
 itemsBooks3[3].append(itemsBooks3[8]);
 
@@ -25,6 +26,7 @@ const itemsBooks5 = books[5].querySelectorAll('li');
 itemsBooks5[1].append(itemsBooks5[9]);
 itemsBooks5[3].append(itemsBooks5[2]);
 itemsBooks5[4].append(itemsBooks5[2]);
+itemsBooks5[7].append(itemsBooks5[5]);
 
 // В шестой книге добавил главу “Глава 8: За пределами ES6” и поставить её в правильное место
 const itemsBooks6 = books[2].querySelectorAll('li')[9];
