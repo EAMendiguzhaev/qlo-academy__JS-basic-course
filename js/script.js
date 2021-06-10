@@ -26,6 +26,11 @@ const expensesItemTemplete = expensesItems[0].cloneNode(true);
 let incomeItems = document.querySelectorAll('.income-items');
 const incomeItemTemplete = incomeItems[0].cloneNode(true);
 
+//Функция проверяет является цифрой
+const isNumber = (n) => {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+};
+
 const appData = {
   budget: 0,
   budgetDay: 0,
@@ -164,11 +169,6 @@ const appData = {
   calcPeriod: () => appData.budgetMonth * periodSelect.value,
 };
 
-//Функция проверяет является цифрой
-const isNumber = function (n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
-};
-
 //Функция вывода на консоль
 function consolePrint() {
   console.log('Наша программа включает в себя данные: ');
@@ -192,20 +192,20 @@ function consolePrint() {
 }
 
 //Функция проверяет является буквой или нет
-function isStr(str) {
+const isStr = (str) => {
   let reg = /^[а-яА-Я ,]+$/;
   return reg.test(str);
-}
+};
 
 //Функция делает первую букву заглавной
-function ucFirst(str) {
+const ucFirst = (str) => {
   if (str === '') {
     return str;
   }
   return str[0].toUpperCase() + str.slice(1);
-}
+};
 
-//Функция валидации полей
+//Валидации полей
 inputName.forEach((item) => {
   item.addEventListener('input', function (event) {
     if (event.target.value !== '' && !isStr(event.target.value)) {
