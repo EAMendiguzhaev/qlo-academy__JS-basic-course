@@ -18,9 +18,6 @@ const targetAmount = document.querySelector('.target-amount');
 const periodSelect = document.querySelector('.period-select');
 const periodAmount = document.querySelector('.period-amount');
 
-const inputName = document.querySelectorAll('input[placeholder = "Наименование"]');
-const inputAmount = document.querySelectorAll('input[placeholder = "Сумма"]');
-
 let expensesItems = document.querySelectorAll('.expenses-items');
 const expensesItemTemplete = expensesItems[0].cloneNode(true);
 let incomeItems = document.querySelectorAll('.income-items');
@@ -92,6 +89,7 @@ const appData = {
   addExpensesBlock: () => {
     let cloneExpensesItem = expensesItemTemplete.cloneNode(true);
     buttonExpensesAdd.before(cloneExpensesItem);
+    validateFunction();
     expensesItems = document.querySelectorAll('.expenses-items');
 
     if (expensesItems.length === 3) {
@@ -122,6 +120,7 @@ const appData = {
   addIncomeBlock: () => {
     let cloneIncomeItem = incomeItemTemplete.cloneNode(true);
     buttonIncomeAdd.before(cloneIncomeItem);
+    validateFunction();
     incomeItems = document.querySelectorAll('.income-items');
 
     if (incomeItems.length === 3) {
@@ -129,6 +128,7 @@ const appData = {
     }
   },
   getExpensesMonth: () => {
+    appData.expensesMonth = 0;
     for (let key in appData.expenses) {
       appData.expensesMonth += parseInt(appData.expenses[key]);
     }
@@ -206,23 +206,30 @@ const ucFirst = (str) => {
 };
 
 //Валидации полей
-inputName.forEach((item) => {
-  item.addEventListener('input', function (event) {
-    if (event.target.value !== '' && !isStr(event.target.value)) {
-      alert('В данном поле допустимы только буквы русского алфавита!');
-      event.target.value = event.target.value.replace(/[^а-яА-Я ,]+$/g, '');
-    }
-  });
-});
+const validateFunction = () => {
+  let inputName = document.querySelectorAll('input[placeholder = "Наименование"]');
 
-inputAmount.forEach((item) => {
-  item.addEventListener('input', function (event) {
-    if (event.target.value !== '' && !isNumber(event.target.value)) {
-      alert('В данном поле допустимы только цифры!');
-      event.target.value = event.target.value.replace(/[^\d]+$/g, '');
-    }
+  inputName.forEach((item) => {
+    item.addEventListener('input', function (event) {
+      if (event.target.value !== '' && !isStr(event.target.value)) {
+        alert('В данном поле допустимы только буквы русского алфавита!');
+        event.target.value = event.target.value.replace(/[^а-яА-Я ,]+$/g, '');
+      }
+    });
   });
-});
+
+  let inputAmount = document.querySelectorAll('input[placeholder = "Сумма"]');
+  inputAmount.forEach((item) => {
+    item.addEventListener('input', function (event) {
+      if (event.target.value !== '' && !isNumber(event.target.value)) {
+        alert('В данном поле допустимы только цифры!');
+        event.target.value = event.target.value.replace(/[^\d]+$/g, '');
+      }
+    });
+  });
+};
+
+validateFunction();
 
 buttonStart.addEventListener('click', (event) => {
   if (salaryAmount.value !== '') {
