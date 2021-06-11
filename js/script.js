@@ -24,6 +24,7 @@ const expensesItemTemplete = expensesItems[0].cloneNode(true);
 let incomeItems = document.querySelectorAll('.income-items');
 const incomeItemTemplete = incomeItems[0].cloneNode(true);
 
+const сalcInputs = document.querySelectorAll('input[type=text]');
 const dataColumn = document.querySelector('.data');
 const inputTypeText = dataColumn.querySelectorAll('input[type=text]');
 const resultColumn = document.querySelector('.result');
@@ -258,9 +259,23 @@ buttonStart.addEventListener('click', function (event) {
 
 // Кнопка сброса
 buttonCansel.addEventListener('click', function (event) {
-  inputTextResult.forEach((element) => {
-    element.value = '0';
+  сalcInputs.forEach((element) => {
+    element.value = '';
   });
+
+  incomeItems.forEach((element, i) => {
+    if (i !== 0) {
+      element.remove();
+    }
+  });
+
+  expensesItems.forEach((element, i) => {
+    if (i !== 0) {
+      element.remove();
+    }
+  });
+
+  depositCheck.checked = false;
 
   buttonStart.style.display = 'block';
   buttonCansel.style.display = 'none';
