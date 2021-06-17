@@ -108,6 +108,8 @@ class AppData {
     this.budget = salaryAmount.value;
 
     this.getExpInc();
+    this.getAddExpInc(this.addIncome, additionalIncomeItem);
+    this.getAddExpInc(this.addExpenses, additionalExpensesItem);
     this.getExpensesMonth();
     this.getInfoDeposit();
     this.getBudget();
@@ -153,6 +155,25 @@ class AppData {
     if (group.length === 2) {
       button.style.display = 'none';
     }
+  }
+
+  getAddExpInc(arr, items) {
+    let res = [];
+
+    if (items.length > 1) {
+      items.forEach((element) => {
+        res.push(element.value);
+      });
+    } else {
+      res = items.value.split(',');
+    }
+
+    res.forEach((item) => {
+      item = item.trim();
+      if (item !== '') {
+        arr.push(item);
+      }
+    });
   }
 
   getExpensesMonth() {
@@ -294,6 +315,8 @@ class AppData {
       depositBank.disabled = false;
       depositBank.style.display = 'none';
       depositAmount.style.display = 'none';
+      buttonExpensesAdd.style.display = 'block';
+      buttonIncomeAdd.style.display = 'block';
     });
 
     buttonExpensesAdd.addEventListener('click', function () {
